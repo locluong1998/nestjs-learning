@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { User } from './user.entity';
 
 @Module({
   imports: [
@@ -11,12 +11,12 @@ import { UsersModule } from './users/users.module';
       host: 'localhost',
       database: 'nest_sample',
       port: 27017,
-      autoLoadEntities: true,
+      entities: [User],
       synchronize: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
-    UsersModule,
+    TypeOrmModule.forFeature([User]),
   ],
   controllers: [AppController],
   providers: [AppService],

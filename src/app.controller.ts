@@ -1,12 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(appService: AppService) {
+    appService
+      .createUser()
+      .then((user) => {
+        console.log('user created successfully:', user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
-  @Get('hello')
-  getHello(): string {
-    return this.appService.getHello();
+  // using API
+  @Post('/users')
+  async createUser() {
+    return this.createUser();
   }
 }

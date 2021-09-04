@@ -1,4 +1,4 @@
-import { IsString, IsArray } from 'class-validator';
+import { IsString } from 'class-validator';
 import { ObjectID } from 'typeorm';
 
 export class CreateUserDto {
@@ -7,7 +7,4 @@ export class CreateUserDto {
 
   @IsString()
   readonly username: string;
-
-  // @IsArray()
-  // readonly roles: ('admin' | 'user')[];
 }
