@@ -14,6 +14,7 @@ import { UsersModule } from './users/users.module';
       autoLoadEntities: true,
       synchronize: true,
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     }),
     UsersModule,
   ],

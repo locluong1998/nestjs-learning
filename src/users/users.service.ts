@@ -10,15 +10,10 @@ export class UsersService {
     private readonly userRepo: Repository<User>,
   ) {}
 
-  async findAll() {
-    return this.userRepo.find();
-  }
-
-  async createUser(user: User): Promise<User> {
-    try {
-      return await this.userRepo.create(user);
-    } catch (error) {
-      console.log(error);
-    }
+  async createUser(): Promise<User> {
+    const user: User = {
+      username: 'locluong1998',
+    };
+    return await this.userRepo.create(user);
   }
 }
